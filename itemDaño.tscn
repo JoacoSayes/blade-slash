@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bvr0xuylvem5m"]
+
+[ext_resource type="Script" uid="uid://dmw7gwpyogaap" path="res://item.gd" id="1_qvo5l"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bhunq"]
+radius = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iabpp"]
+albedo_color = Color(0.8627451, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f4bid"]
+material = SubResource("StandardMaterial3D_iabpp")
+size = Vector3(0.4, 0.4, 0.4)
+
+[node name="ItemDaño" type="Area3D" unique_id=1314240058]
+script = ExtResource("1_qvo5l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=249066959]
+shape = SubResource("SphereShape3D_bhunq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1134622909]
+mesh = SubResource("BoxMesh_f4bid")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

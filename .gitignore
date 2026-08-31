@@ -1,0 +1,15 @@
+# Godot 4+ ignora la caché interna del motor, se regenera sola
+.godot/
+
+# Archivos de exportación (si en algún momento exportás el juego)
+*.translation
+export.cfg
+export_credentials.cfg
+
+# Carpeta de builds exportadas, si las guardás dentro del proyecto
+/builds/
+/export/
+
+# Archivos temporales del sistema operativo
+.DS_Store
+Thumbs.db

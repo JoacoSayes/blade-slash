@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://y8jsq1g1u2up"]
+
+[ext_resource type="Script" uid="uid://dmw7gwpyogaap" path="res://item.gd" id="1_tnite"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bhunq"]
+radius = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnite"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ttk8k"]
+material = SubResource("StandardMaterial3D_tnite")
+size = Vector3(0.4, 0.4, 0.4)
+
+[node name="Item" type="Area3D" unique_id=1314240058]
+script = ExtResource("1_tnite")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=249066959]
+shape = SubResource("SphereShape3D_bhunq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1134622909]
+mesh = SubResource("BoxMesh_ttk8k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

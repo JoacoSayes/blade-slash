@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dvgjv42kn57u3"]
+
+[ext_resource type="PackedScene" uid="uid://dvdw5tdubvfvk" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dm4s4o3sjjnjr" path="res://director_oleadas.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dawxit2epva37" path="res://enemigo.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://vv6rw6esqahq" path="res://ui.tscn" id="5_lquwl"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_0xm2m"]
+vertices = PackedVector3Array(-49.5, 0.45, 0, -1, 0.45, 0, -1, 0.45, -0.75, 0, 0.45, -1, 0, 0.45, -49.5, -49.5, 0.45, -49.5, 0.75, 0.45, -1, 1.25, 0.45, 0, 49.5, 0.45, 0, 49.5, 0.45, -49.5, -1, 0.45, 0.75, 0, 0.45, 49.5, 0, 0.45, 1, -49.5, 0.45, 49.5, 0.75, 0.45, 1, 49.5, 0.45, 49.5)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(3, 2, 4), PackedInt32Array(4, 2, 5), PackedInt32Array(5, 2, 0), PackedInt32Array(6, 3, 4), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(9, 6, 4), PackedInt32Array(0, 1, 10), PackedInt32Array(12, 11, 10), PackedInt32Array(10, 11, 13), PackedInt32Array(10, 13, 0), PackedInt32Array(11, 12, 14), PackedInt32Array(7, 8, 14), PackedInt32Array(14, 8, 15), PackedInt32Array(14, 15, 11)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
+size = Vector3(100, 0.1, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bhunq"]
+size = Vector3(100, 0.1, 100)
+
+[sub_resource type="Environment" id="Environment_bhunq"]
+background_mode = 1
+background_color = Color(0.6710473, 0.7802559, 1, 1)
+
+[node name="Main" type="Node3D" unique_id=1246656521]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=6573509]
+navigation_mesh = SubResource("NavigationMesh_0xm2m")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D" unique_id=447614454]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D" unique_id=793657909]
+shape = SubResource("BoxShape3D_bhunq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D" unique_id=106445053]
+mesh = SubResource("BoxMesh_bhunq")
+
+[node name="Player" parent="NavigationRegion3D/StaticBody3D" unique_id=69791680 groups=["jugador"] instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+distancia_melee = 1.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="NavigationRegion3D/StaticBody3D" unique_id=338321777]
+transform = Transform3D(1, 0, 0, 0, -0.9477684, 0.31895936, 0, -0.31895936, -0.9477684, -61.40411, 13.88455, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="NavigationRegion3D/StaticBody3D" unique_id=1749130907]
+environment = SubResource("Environment_bhunq")
+
+[node name="DirectorOleadas" parent="." unique_id=985612171 instance=ExtResource("3_h2yge")]
+escenas_enemigos = Array[PackedScene]([ExtResource("4_1bvp3")])
+
+[node name="UI" parent="." unique_id=1929243756 node_paths=PackedStringArray("jugador", "director") instance=ExtResource("5_lquwl")]
+jugador = NodePath("../NavigationRegion3D/StaticBody3D/Player")
+director = NodePath("../DirectorOleadas")

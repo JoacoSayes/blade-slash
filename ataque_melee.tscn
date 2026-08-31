@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dag6xmxcp2cug"]
+
+[ext_resource type="Script" uid="uid://bgbh5ufv6141q" path="res://ataque_melee.gd" id="1_xyde1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
+size = Vector3(2.5, 1.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riqys"]
+albedo_color = Color(0, 0.6491829, 1, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_bhunq"]
+material = SubResource("StandardMaterial3D_riqys")
+size = Vector3(2.5, 0.07, 1)
+
+[node name="AtaqueMelee" type="Area3D" unique_id=965601289]
+script = ExtResource("1_xyde1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1414922122]
+shape = SubResource("BoxShape3D_bhunq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=349433537]
+mesh = SubResource("BoxMesh_bhunq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://31u28ekxny5y"]
+
+[ext_resource type="Script" uid="uid://bpoyw1op3ia3k" path="res://efecto_impacto.gd" id="1_vmmq6"]
+[ext_resource type="AudioStream" uid="uid://v7ya183bhv5m" path="res://universfield-cinematic-impact-hit-352702.wav" id="2_f8wxc"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wrrdn"]
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmmq6"]
+albedo_color = Color(1, 0.15294118, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ulk6n"]
+material = SubResource("StandardMaterial3D_vmmq6")
+radius = 0.1
+height = 0.2
+
+[node name="EfectoMuerte" type="Node3D" unique_id=1524346220]
+script = ExtResource("1_vmmq6")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=862573039]
+emitting = false
+amount = 10
+lifetime = 0.2
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_wrrdn")
+draw_pass_1 = SubResource("SphereMesh_ulk6n")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=823703109]
+stream = ExtResource("2_f8wxc")

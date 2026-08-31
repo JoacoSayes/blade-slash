@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cd6j6p0c3e7sq"]
+
+[ext_resource type="Script" uid="uid://dku5qu6ltrr36" path="res://proyectil.gd" id="1_bg2bl"]
+[ext_resource type="PackedScene" uid="uid://dmdit0bhhvlcr" path="res://efecto_impacto.tscn" id="2_etydj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bhunq"]
+radius = 0.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_riqys"]
+radius = 0.2
+height = 0.4
+
+[node name="Proyectil" type="Area3D" unique_id=1205205742]
+script = ExtResource("1_bg2bl")
+velocidad = 50.0
+escena_efecto_impacto = ExtResource("2_etydj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1406948558]
+shape = SubResource("SphereShape3D_bhunq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=468606200]
+mesh = SubResource("SphereMesh_riqys")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

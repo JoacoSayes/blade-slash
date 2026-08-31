@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dawxit2epva37"]
+
+[ext_resource type="Script" uid="uid://djiqv4wywluxl" path="res://enemigo.gd" id="1_becj5"]
+[ext_resource type="PackedScene" uid="uid://bvr0xuylvem5m" path="res://itemDaño.tscn" id="2_bnx68"]
+[ext_resource type="PackedScene" uid="uid://cwbva3pqv23kb" path="res://itemVelocidad.tscn" id="3_j8qs0"]
+[ext_resource type="PackedScene" uid="uid://busm383qkbr4p" path="res://itemVida.tscn" id="4_57rph"]
+[ext_resource type="PackedScene" uid="uid://31u28ekxny5y" path="res://efecto_muerte.tscn" id="5_j8qs0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bhunq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riqys"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bhunq"]
+material = SubResource("StandardMaterial3D_riqys")
+
+[node name="Enemigo" type="CharacterBody3D" unique_id=630193036 groups=["enemigos"]]
+script = ExtResource("1_becj5")
+escenas_items = Array[PackedScene]([ExtResource("2_bnx68"), ExtResource("3_j8qs0"), ExtResource("4_57rph")])
+escena_efecto_muerte = ExtResource("5_j8qs0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2018373827]
+shape = SubResource("CapsuleShape3D_bhunq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1437064977]
+mesh = SubResource("CapsuleMesh_bhunq")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1492977391]

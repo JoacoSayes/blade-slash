@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dm4s4o3sjjnjr"]
+
+[ext_resource type="Script" uid="uid://bc5irdogw5tbt" path="res://director_oleadas.gd" id="1_hn3wo"]
+
+[node name="DirectorOleadas" type="Node3D" unique_id=985612171]
+script = ExtResource("1_hn3wo")
+
+[node name="PuntosSpawn" type="Node3D" parent="." unique_id=1129582462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Marker3D" type="Marker3D" parent="PuntosSpawn" unique_id=1872342309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="PuntosSpawn" unique_id=1737730331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35)
+
+[node name="Marker3D3" type="Marker3D" parent="PuntosSpawn" unique_id=290027529]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 0)
+
+[node name="Marker3D4" type="Marker3D" parent="PuntosSpawn" unique_id=1854001650]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35)
