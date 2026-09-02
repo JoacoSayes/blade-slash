@@ -30,7 +30,7 @@ Este es un prototipo funcional (no un juego terminado) que implementa el loop ce
 | Correr | Shift |
 | Saltar | Espacio |
 | Disparar | Clic izquierdo |
-| Ataque melee | *(la que hayas asignado)* |
+| Ataque melee | Clic Derecho |
 | Salir de captura del mouse | ESC |
 
 ## Capturas
