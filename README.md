@@ -35,7 +35,7 @@ Este es un prototipo funcional (no un juego terminado) que implementa el loop ce
 
 ## Capturas
 
-*(agregar screenshots o un GIF corto jugando)*
+<img width="1067" height="589" alt="image" src="https://github.com/user-attachments/assets/23cf23b8-b061-438a-bc72-ea77895087d8" />
 
 ## Estado del proyecto
 
