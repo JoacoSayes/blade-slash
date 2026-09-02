@@ -1,19 +1,14 @@
 [gd_scene format=3 uid="uid://dvdw5tdubvfvk"]
 
-[ext_resource type="Script" uid="uid://c3468cggtewyq" path="res://player.gd" id="1_4flbx"]
-[ext_resource type="PackedScene" uid="uid://cd6j6p0c3e7sq" path="res://proyectil.tscn" id="2_i3pqv"]
-[ext_resource type="PackedScene" uid="uid://dag6xmxcp2cug" path="res://ataque_melee.tscn" id="3_hqtel"]
-[ext_resource type="PackedScene" uid="uid://by8e3cfev88d1" path="res://ModeloPlayer.glb" id="4_hqtel"]
+[ext_resource type="Script" uid="uid://dmhaia67s854d" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://p2p4l3r4omnf" path="res://modelos/jugador/modelo_jugador.tscn" id="4_hqtel"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bhunq"]
 
 [node name="Player" type="CharacterBody3D" unique_id=69791680]
 script = ExtResource("1_4flbx")
-escena_proyectil = ExtResource("2_i3pqv")
-escena_ataque_melee = ExtResource("3_hqtel")
-cooldown_melee = 0.2
 
-[node name="ModeloPlayer" parent="." unique_id=978062554 instance=ExtResource("4_hqtel")]
+[node name="ModeloJugador" parent="." unique_id=2139558275 instance=ExtResource("4_hqtel")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1802022170]

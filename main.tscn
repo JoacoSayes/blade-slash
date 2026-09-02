@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://dvgjv42kn57u3"]
 
+[ext_resource type="Texture2D" uid="uid://brni7c65wc55e" path="res://top-view-bright-green-grass-texture-background.jpg" id="1_272bh"]
 [ext_resource type="PackedScene" uid="uid://dvdw5tdubvfvk" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cd6j6p0c3e7sq" path="res://proyectil.tscn" id="2_7mycd"]
+[ext_resource type="PackedScene" uid="uid://dag6xmxcp2cug" path="res://ataque_melee.tscn" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://dm4s4o3sjjnjr" path="res://director_oleadas.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dawxit2epva37" path="res://enemigo.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://vv6rw6esqahq" path="res://ui.tscn" id="5_lquwl"]
@@ -12,7 +15,16 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(3, 2, 4), PackedInt32Arr
 [sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
 size = Vector3(100, 0.1, 100)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onrkg"]
+albedo_texture = ExtResource("1_272bh")
+metallic_specular = 0.0
+roughness = 0.0
+roughness_texture_channel = 1
+normal_scale = 0.5
+heightmap_scale = 0.136
+
 [sub_resource type="BoxMesh" id="BoxMesh_bhunq"]
+material = SubResource("StandardMaterial3D_onrkg")
 size = Vector3(100, 0.1, 100)
 
 [sub_resource type="Environment" id="Environment_bhunq"]
@@ -22,6 +34,7 @@ background_color = Color(0.6710473, 0.7802559, 1, 1)
 [node name="Main" type="Node3D" unique_id=1246656521]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=6573509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018923283, 0.0110321045, 0.016889095)
 navigation_mesh = SubResource("NavigationMesh_0xm2m")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D" unique_id=447614454]
@@ -34,6 +47,8 @@ mesh = SubResource("BoxMesh_bhunq")
 
 [node name="Player" parent="NavigationRegion3D/StaticBody3D" unique_id=69791680 groups=["jugador"] instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+escena_proyectil = ExtResource("2_7mycd")
+escena_ataque_melee = ExtResource("3_272bh")
 distancia_melee = 1.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="NavigationRegion3D/StaticBody3D" unique_id=338321777]
